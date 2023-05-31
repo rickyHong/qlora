@@ -54,6 +54,9 @@ For models larger than 13B, we recommend adjusting the learning rate:
 python qlora.py –learning_rate 0.0001 --model_name_or_path <path_or_name>
 ```
 
+## Datasets
+https://huggingface.co/EleutherAI
+
 ## Quantization
 Quantization parameters are controlled from the `BitsandbytesConfig` ([see HF documenation](https://huggingface.co/docs/transformers/main_classes/quantization#transformers.BitsAndBytesConfig)) as follows:
 - Loading in 4 bits is activated through `load_in_4bit`
