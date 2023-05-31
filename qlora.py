@@ -51,7 +51,11 @@ DEFAULT_PAD_TOKEN = "[PAD]"
 @dataclass
 class ModelArguments:
     model_name_or_path: Optional[str] = field(
-        default="EleutherAI/pythia-12b"
+        default="EleutherAI/polyglot-ko-12.8b"        
+        #default="EleutherAI/polyglot-ko-5.8b"
+        #default="EleutherAI/gpt-j-6b"
+        #default="EleutherAI/polyglot-ko-1.3b"
+        #default="EleutherAI/pythia-12b"
     )
     trust_remote_code: Optional[bool] = field(
         default=False,
