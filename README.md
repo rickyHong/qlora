@@ -46,7 +46,7 @@ pip install -q -U git+https://github.com/huggingface/accelerate.git
 The `qlora.py` code is a starting point for finetuning and inference on various datasets.
 Basic command for finetuning a baseline model on the Alpaca dataset:
 ```bash
-python qlora.py --model_name_or_path <path_or_name>
+python3 qlora.py  --load_in_4bit=True
 ```
 
 For models larger than 13B, we recommend adjusting the learning rate:
