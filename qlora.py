@@ -492,6 +492,12 @@ def make_data_module(tokenizer: transformers.PreTrainedTokenizer, args) -> Dict:
     if args.dataset == 'alpaca':
         dataset = load_dataset("tatsu-lab/alpaca")
         dataset = dataset.map(extract_alpaca_dataset, remove_columns=['instruction'])
+    elif args.dataset == 'alpaca-ko-01':
+        dataset = load_dataset("royboy0416/ko-alpaca")
+        dataset = dataset.map(extract_alpaca_dataset, remove_columns=['instruction'])
+    elif args.dataset == 'alpaca-ko-02':
+        dataset = load_dataset("Bingsu/ko_alpaca_data")
+        dataset = dataset.map(extract_alpaca_dataset, remove_columns=['instruction'])
     # Alpaca clean
     elif args.dataset == 'alpaca-clean':
         dataset = load_dataset("yahma/alpaca-cleaned")
