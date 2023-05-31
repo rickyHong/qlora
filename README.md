@@ -58,7 +58,8 @@ python qlora.py –learning_rate 0.0001 --model_name_or_path <path_or_name>
 https://huggingface.co/EleutherAI
 
 Models, Datasets. 
---model_name_or_path=EleutherAI/??
+--model_name_or_path=EleutherAI/polyglot-ko-12.8b
+--dataset=alpaca-ko-01 
 
 ## Quantization
 Quantization parameters are controlled from the `BitsandbytesConfig` ([see HF documenation](https://huggingface.co/docs/transformers/main_classes/quantization#transformers.BitsAndBytesConfig)) as follows:
