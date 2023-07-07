@@ -47,6 +47,16 @@ The `qlora.py` code is a starting point for finetuning and inference on various 
 Basic command for finetuning a baseline model on the Alpaca dataset:
 ```bash
 python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-12.8b --dataset=alpaca-ko-01 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4
+
+# Good, GPU Memory < 8GB
+#python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-5.8b --dataset=alpaca-ko-01 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4'
+# Good, GPU Memory < 8GB
+#python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-5.8b --dataset=alpaca-ko-02 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4'
+#python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-3.8b --dataset=alpaca-ko-01 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4'
+# Good, GPU Memory < 12GB
+#python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-12.8b --dataset=alpaca-ko-01 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4'
+# Good, GPU Memory < 4GB
+python3 qlora.py --model_name_or_path=EleutherAI/polyglot-ko-1.3b --dataset=alpaca-ko-01 --load_in_4bit=True --bnb_4bit_compute_dtype=torch.bfloat16 --bnb_4bit_use_double_quant=True --bnb_4bit_quant_type='nf4'
 ```
 
 For models larger than 13B, we recommend adjusting the learning rate:
@@ -55,6 +65,8 @@ python qlora.py –learning_rate 0.0001 --model_name_or_path <path_or_name>
 ```
 
 Inference... code
+## https://huggingface.co/timdettmers/guanaco-7b
+
 ```bash
 import torch
 from peft import PeftModel
