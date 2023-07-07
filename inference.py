@@ -29,13 +29,10 @@ model = PeftModel.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 while True:
-    formatted_prompt = input(f'Human:')
-
-    """
+    prompt = input(f'Human:')
     formatted_prompt = (
         f"### Human: {prompt} ### Assistant:"
-    )
-    """
+)
 
     inputs = tokenizer(formatted_prompt, return_tensors="pt").to("cuda:0")
     outputs = model.generate(inputs=inputs.input_ids, max_new_tokens=2000)
