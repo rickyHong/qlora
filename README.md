@@ -54,6 +54,7 @@ For models larger than 13B, we recommend adjusting the learning rate:
 python qlora.py –learning_rate 0.0001 --model_name_or_path <path_or_name>
 ```
 
+Inference... code
 ```bash
 import torch
 from peft import PeftModel
@@ -84,6 +85,17 @@ model = PeftModel.from_pretrained(
         )
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+#prompt = "Introduce yourself"
+prompt = "안녕"
+formatted_prompt = (
+    f"A chat between a curious human and an artificial intelligence assistant."
+    f"The assistant gives helpful, detailed, and polite answers to the user's questions.\n"
+    f"### Human: {prompt} ### Assistant:"
+)
+inputs = tokenizer(formatted_prompt, return_tensors="pt").to("cuda:0")
+outputs = model.generate(inputs=inputs.input_ids, max_new_tokens=20)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
 ## Datasets
