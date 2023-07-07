@@ -28,13 +28,15 @@ model = PeftModel.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-#prompt = "Introduce yourself"
-prompt = "안녕"
-formatted_prompt = (
-    f"A chat between a curious human and an artificial intelligence assistant."
-    f"The assistant gives helpful, detailed, and polite answers to the user's questions.\n"
-    f"### Human: {prompt} ### Assistant:"
-)
-inputs = tokenizer(formatted_prompt, return_tensors="pt").to("cuda:0")
-outputs = model.generate(inputs=inputs.input_ids, max_new_tokens=20)
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+while True:
+    formatted_prompt = input(f'Human:')
+
+    """
+    formatted_prompt = (
+        f"### Human: {prompt} ### Assistant:"
+    )
+    """
+
+    inputs = tokenizer(formatted_prompt, return_tensors="pt").to("cuda:0")
+    outputs = model.generate(inputs=inputs.input_ids, max_new_tokens=2000)
+    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
