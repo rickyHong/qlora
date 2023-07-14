@@ -7,6 +7,20 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 model_name = "EleutherAI/polyglot-ko-1.3b"
 adapters_name = 'output/output13b/adapter_model'
 
+# for 16bit
+"""
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
+    max_memory= {i: '24000MB' for i in range(torch.cuda.device_count())},
+)
+model = PeftModel.from_pretrained(model, adapters_name)
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+"""
+
+#for 4bit
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     load_in_4bit=True,
