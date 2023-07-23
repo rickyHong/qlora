@@ -11,7 +11,7 @@ This repo supports the paper "QLoRA: Efficient Finetuning of Quantized LLMs", an
 QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Huggingface's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
 
 ## merge the base and LoRA weights !!!!!
-This script from FastChat might be helpful to merge the base and LoRA weights.
+This [Script](https://github.com/lm-sys/FastChat/blob/main/fastchat/model/apply_lora.py) from FastChat might be helpful to merge the base and LoRA weights.
 
 ## Disclaimer
 As some of you reported, there are some bugs in the `qlroa.py` code in this repo due to new versions of PEFT and transformers. We are actively resolving them and will update the repo as soon as possible. These don't affect the use of 4-bit quantization or paged optimizers - only with the qlora.py code for finetuning.
