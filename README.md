@@ -12,6 +12,7 @@ QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quant
 
 ## merge the base and LoRA weights !!!!!
 This [Script](https://github.com/lm-sys/FastChat/blob/main/fastchat/model/apply_lora.py) from FastChat might be helpful to merge the base and LoRA weights.
+https://huggingface.co/datasets/junelee/sharegpt_deepl_ko [For] Multi-Lang-ko
 
 ## Disclaimer
 As some of you reported, there are some bugs in the `qlroa.py` code in this repo due to new versions of PEFT and transformers. We are actively resolving them and will update the repo as soon as possible. These don't affect the use of 4-bit quantization or paged optimizers - only with the qlora.py code for finetuning.
