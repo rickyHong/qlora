@@ -10,6 +10,18 @@ This repo supports the paper "QLoRA: Efficient Finetuning of Quantized LLMs", an
 
 QLoRA uses [bitsandbytes](https://github.com/TimDettmers/bitsandbytes) for quantization and is integrated with Huggingface's [PEFT](https://github.com/huggingface/peft) and [transformers](https://github.com/huggingface/transformers/) libraries. QLoRA was developed by members of the [University of Washington's UW NLP group](https://twitter.com/uwnlp?s=20).
 
+## True is tokenizer.json into only !!!!!
+    # Tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(
+        args.model_name_or_path,
+        cache_dir=args.cache_dir,
+        padding_side="right",
+        use_fast=True, # Fast tokenizer giving issues. !!! True is tokenizer.json
+        tokenizer_type='llama' if 'llama' in args.model_name_or_path else None, # Needed for HF name change
+        trust_remote_code=args.trust_remote_code,
+        use_auth_token=args.use_auth_token,
+    )
+
 ## merge the base and LoRA weights !!!!!
 This [Script](https://github.com/lm-sys/FastChat/blob/main/fastchat/model/apply_lora.py) from FastChat might be helpful to merge the base and LoRA weights.
 https://huggingface.co/datasets/junelee/sharegpt_deepl_ko [For] Multi-Lang-ko
